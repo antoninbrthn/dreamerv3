@@ -94,7 +94,7 @@ class Crafter(embodied.Env):
 
 
 class CrafterEasy(Crafter):
-  def __init__(self, task, size=(64, 64), logs=False, logdir=None, seed=None):
+  def __init__(self, task, size=(64, 64), logs=True, logdir=None, seed=None):
     assert task in ('reward', 'noreward')
     self._env = crafter.Env(size=size, reward=(task == 'reward'), seed=seed, difficulty='easy')
     self._logs = logs
@@ -107,7 +107,7 @@ class CrafterEasy(Crafter):
     self._done = True
 
 class CrafterMedium(Crafter):
-  def __init__(self, task, size=(64, 64), logs=False, logdir=None, seed=None):
+  def __init__(self, task, size=(64, 64), logs=True, logdir=None, seed=None):
     assert task in ('reward', 'noreward')
     self._env = crafter.Env(size=size, reward=(task == 'reward'), seed=seed, difficulty='medium')
     self._logs = logs
