@@ -1,0 +1,3 @@
+# screen -dmS med0 bash -c 'sleep 0 && conda deactivate && conda activate envs/dreamerv3 && cd dreamerv3/ && CUDA_VISIBLE_DEVICES="1" python dreamerv3/main.py --logdir ./logdir/{timestamp} --configs crafter_medium size50m --script train_eval --run.train_ratio 32'
+# Gpu0: don't set gpu, change env path
+screen -dmS med0 bash -c 'sleep 0 && conda deactivate && conda activate dreamerv3 && cd dreamerv3/ && python dreamerv3/main.py --logdir ./logdir/{timestamp} --configs crafter_medium size50m --script train_eval --run.train_ratio 32'
