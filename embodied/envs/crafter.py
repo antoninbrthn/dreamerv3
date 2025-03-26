@@ -91,3 +91,30 @@ class Crafter(embodied.Env):
     lines += json.dumps(stats) + '\n'
     filename.write(lines, mode='w')
     print(f'Wrote stats: {filename}')
+
+
+class CrafterEasy(Crafter):
+  def __init__(self, task, size=(64, 64), logs=False, logdir=None, seed=None):
+    assert task in ('reward', 'noreward')
+    self._env = crafter.Env(size=size, reward=(task == 'reward'), seed=seed, difficulty='easy')
+    self._logs = logs
+    self._logdir = logdir and elements.Path(logdir)
+    self._logdir and self._logdir.mkdir()
+    self._episode = 0
+    self._length = None
+    self._reward = None
+    self._achievements = crafter.constants.achievements.copy()
+    self._done = True
+
+class CrafterMedium(Crafter):
+  def __init__(self, task, size=(64, 64), logs=False, logdir=None, seed=None):
+    assert task in ('reward', 'noreward')
+    self._env = crafter.Env(size=size, reward=(task == 'reward'), seed=seed, difficulty='medium')
+    self._logs = logs
+    self._logdir = logdir and elements.Path(logdir)
+    self._logdir and self._logdir.mkdir()
+    self._episode = 0
+    self._length = None
+    self._reward = None
+    self._achievements = crafter.constants.achievements.copy()
+    self._done = True

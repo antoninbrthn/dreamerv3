@@ -175,6 +175,14 @@ crafter:
   task: crafter_reward
   run: {steps: 1.1e6, envs: 1, train_ratio: 512}
 
+crafter_easy:
+  task: crafter-easy_reward
+  run: {steps: 2.1e6, envs: 1, train_ratio: 512}
+
+crafter_medium:
+  task: crafter-medium_reward
+  run: {steps: 2.1e6, envs: 1, train_ratio: 512}
+
 dmc_proprio:
   <<: *size1m
   task: dmc_walker_walk
